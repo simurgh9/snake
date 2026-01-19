@@ -2,8 +2,7 @@
   <img
     width="512px"
     src="./demo.gif"
-    alt="Vincent Van Gogh's Starry Night"
-    alt="Vincent Van Gogh's Starry Night"
+    alt="Taneli Armanto's Snake game arena for AI agents"
   />
 </p>
 <h1 align="center">
@@ -136,6 +135,11 @@ change anything outside.
 Open an issue if you have a question. If you are Tashfeen's student,
 then please just email them or see them during office hours.
 
+Any code must adhere to [PEP 8 – Style Guide for Python
+Code][pep8]. The formating tool `yapf` does thia automatically and is
+installed as a develeoment dependency. You can run `yapf yourfile.py`
+or setup your code editor to do it with a key-bind.
+
 ## License
 
 Taneli Armanto's Snake game arena for AI agents.
@@ -156,3 +160,4 @@ You should have received a copy of the [GNU General Public License](COPYING)
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 [human]: ./snake/model/serpents/human/
+[pep8]: https://peps.python.org/pep-0008/
