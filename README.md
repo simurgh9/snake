@@ -61,7 +61,7 @@ successfully.
 You need to run,
 
 ~~~
-pip install -e ".[dev]
+pip install -e ".[dev]"
 ~~~
 
 and then check the installation with,
