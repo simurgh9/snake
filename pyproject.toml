@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snake"
+version = "0.0.1"
+license = "GPL-3.0-or-later"
+license-files = ["COPYING"]
+keywords = ["snake", "games", "ai", "competitive"]
+authors = [
+  { name="Tashfeen" },
+  { name="Tashfeen", email="simurgh9@pm.me" }
+]
+maintainers = [
+  { name="Tashfeen", email="simurgh9@pm.me" },
+]
+description = "Taneli Armanto's Snake game arena for AI agents."
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+  "Intended Audience :: CS Students and Professors",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "numpy>2.2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "numpydoc>1.9.0",
+  "yapf>0.42.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/simurgh9/fractalsetc"
+Repository = "https://github.com/simurgh9/fractalsetc"
+Issues = "https://github.com/simurgh9/fractalsetc/issues"
+
+[project.scripts]
+snake = "snake.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["snake", "snake.*"]
+
+[tool.setuptools.package-data]
+"snake" = ["data/names.csv"]
