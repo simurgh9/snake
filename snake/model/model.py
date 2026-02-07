@@ -6,7 +6,7 @@ from random import seed, randint
 
 class Model:
 
-    EXPONENT = 7
+    EXPONENT = 6
 
     def __init__(self, width_pixel, height_pixel):
         seed(42)
@@ -55,7 +55,7 @@ class Model:
                 self.bump_speed()
 
     def bump_speed(self):
-        self.interval = int(max(0.9 * self.interval, 1))
+        self.interval = int(max(0.5 * self.interval, 1))
 
     def random_apple(self):
         i, j = randint(0, self.W - 1), randint(0, self.H - 1)
