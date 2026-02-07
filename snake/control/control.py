@@ -1,11 +1,11 @@
-from snake.model import Model
+from snake.model.serpents.viper import GeneticAlgorithm
 
 
 class Control:
 
     def __init__(self, view):
         self.allowed_keys = {'up', 'down', 'right', 'left', 'l', 'r', 'space'}
-        self.model = Model(*view.pixel_screen_dims())
+        self.model = GeneticAlgorithm(*view.pixel_screen_dims())
 
     def M(self):
         return self.model

@@ -16,7 +16,7 @@ class Model:
         self.W, self.H, self.limb_pixel_length = w, h, limb
 
         # initialise apples
-        self.apples = [None for i in range(10)]
+        self.apples = [None for i in range(100)]
         for i in range(len(self.apples)):
             self.replenish_apple(i, speedup=False)
 
