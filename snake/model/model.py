@@ -24,7 +24,7 @@ class Model:
         self.snakes = []
         agents = {c.__name__: c for _, c in getmembers(serpents, isclass)}
         for i, name in enumerate(agents):
-            if name != 'Snake':
+            if name not in ['Snake', 'Viper']:
                 Agent = agents[name]
                 self.snakes.append(Agent(self.W, self.H, self.apples))
                 print(f'[x] {self.snakes[-1].name:10s} initialised.')

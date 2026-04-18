@@ -1,5 +1,5 @@
 from snake.model import Model
-from snake.model.serpents.viper import Viper
+from snake.model.serpents import Viper
 from random import choices, random
 import numpy as np
 
