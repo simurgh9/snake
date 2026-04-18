@@ -1,4 +1,4 @@
-from snake.model.serpents.viper import GeneticAlgorithm
+from snake.model.serpents.viper.ga import GeneticAlgorithm
 
 
 class Control:
