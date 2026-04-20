@@ -7,11 +7,12 @@ from random import seed, randint
 class Model:
 
     EXPONENT = 6
+    INIT_INTERVAL = 250  # milliseconds
 
     def __init__(self, width_pixel, height_pixel):
         seed(42)
         self.PAUSED = False
-        self.interval = 250  # milliseconds
+        self.interval = self.INIT_INTERVAL
         w, h, limb = self.pixel_to_blocks(width_pixel, height_pixel)
         self.W, self.H, self.limb_pixel_length = w, h, limb
 
@@ -24,7 +25,7 @@ class Model:
         self.snakes = []
         agents = {c.__name__: c for _, c in getmembers(serpents, isclass)}
         for i, name in enumerate(agents):
-            if name != 'Snake':
+            if name not in ['Snake', 'Human']:
                 Agent = agents[name]
                 self.snakes.append(Agent(self.W, self.H, self.apples))
                 print(f'[x] {self.snakes[-1].name:10s} initialised.')
@@ -36,7 +37,14 @@ class Model:
             if living[-1]:
                 eaten_apple_index = snake.advance()
                 self.replenish_apple(eaten_apple_index)
-        return any(living)
+
+        if not any(living):
+            self.interval = self.INIT_INTERVAL
+            for snake in self.snakes:
+                print(f'{snake.name}\'s Score: {snake.score()}')
+                snake.respawn()
+
+        return True
 
     def turn(self, pressed):
         for snake in self.snakes:

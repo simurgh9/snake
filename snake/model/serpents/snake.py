@@ -43,6 +43,12 @@ class Snake(ABC):
         self.limbs.pop()
         return None
 
+    def respawn(self):
+        self.orientation = self.EAST
+        self.limbs = [(self.W // 2, self.H // 2)]
+        for _ in range(self.INIT_LEN - 1):
+            self.limbs.append((self.limbs[-1][0] - 1, self.limbs[-1][1]))
+
     def score(self):
         return len(self.limbs) - self.INIT_LEN
 
