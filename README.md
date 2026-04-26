@@ -78,21 +78,34 @@ Execute `snake`.
 
 Start by looking into [./snake/model/serpents/human/][human].  This
 agent is for a human player and can act as an example for how to set up
-a directory.
+a directory for your AI agent.
 
 1. Create a directory inside `./snake/model/serpents/`. For example,
-   `./snake/model/serpents/basilisk/`.
+   `./snake/model/serpents/basilisk/`.  This will show how to add an
+   agent dubbed _Basilisk_.
 2. Create a file `./snake/model/serpents/basilisk/__init__.py` with
    contents,
    
    ~~~python
-   from snake.model.serpents.basilisk.basilisk import basilisk
+   from snake.model.serpents.basilisk.basilisk import Basilisk
    ~~~
+   
+   Now import this module into `./snake/model/serpents/__init__.py`,
+   
+   ~~~python
+   from snake.model.serpents.basilisk import Basilisk
+   ~~~
+   
+   Note that this change is for your local development only and should
+   not be commited.  You may consider adding
+   `./snake/model/serpents/__init__.py` into your local `.gitignore`.
+   
 3. Create a file `./snake/model/serpents/basilisk/basilisk.py` with
    contents,
    
    ~~~python
    from snake.model.serpents import Snake
+   # from snake.model.serpents import Ophion  # with sensor information
 
 
    class Basilisk(Snake):
@@ -114,21 +127,25 @@ the property `name` that must return your name and the abstract method
 `turn(self)`.
 
 Note that there is also another abstract class
-`snake.model.serpents.Ophion` that implements sensor information. You
-can instead extend it with,
-
-~~~python
-from snake.model.serpents.ophion import Ophion
-
-
-class Basilisk(Ophion):
-    ....
-~~~
+`snake.model.serpents.Ophion` that implements sensor information.
 
 You may write any other helper modules you like in
-`./snake/model/serpents/basilisk/` and adjust
-`./snake/model/serpents/basilisk/__init__.py` accordingly. You may not
-change anything outside.
+`./snake/model/serpents/basilisk/` and you may not change anything
+outside.
+
+The directory basilisk in Python terms is a (sub)package.  When you
+import from a directory/package, the `__init__.py` file is
+implicitly executed providing the imports.  Your code lives in
+`basilisk/basilisk.py` which is exposed through the
+package/directory `basilisk` via the import within
+`basilisk/__init__.py`.  This import is what imports from the file
+`basilisk/basilisk.py`.  Then, we use this exposition to further
+expose the code from the parent package serpents' `__init__.py`.
+The import within `serpents/__init__.py` imports from the package
+basilisk.
+
+FYI, switching to namespace packaging is on the to-do list. See
+Issue #1.
 
 ## Conclusion
 
@@ -136,9 +153,9 @@ Open an issue if you have a question. If you are Tashfeen's student,
 then please just email them or see them during office hours.
 
 Any code must adhere to [PEP 8 – Style Guide for Python
-Code][pep8]. The formating tool `yapf` does thia automatically and is
-installed as a develeoment dependency. You can run `yapf yourfile.py`
-or setup your code editor to do it with a key-bind.
+Code][pep8]. The formatting tool `yapf` does this automatically and is
+installed as a development dependency. You can run `yapf yourfile.py`
+or set up your code editor to do it with a key-bind.
 
 ## License
 
