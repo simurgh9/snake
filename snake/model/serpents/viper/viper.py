@@ -1,4 +1,4 @@
-from snake.model.serpents.ophion import Ophion
+from snake.model.serpents import Ophion
 from math import sqrt, ceil, floor, log2
 from snake.model.serpents.viper.ffnn import FeedForwardNeuralNetwork
 
