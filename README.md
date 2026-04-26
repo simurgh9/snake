@@ -145,7 +145,7 @@ The import within `serpents/__init__.py` imports from the package
 basilisk.
 
 FYI, switching to namespace packaging is on the to-do list. See
-Issue #1.
+[Issue #1][#1].
 
 ## Conclusion
 
@@ -178,3 +178,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 [human]: ./snake/model/serpents/human/
 [pep8]: https://peps.python.org/pep-0008/
+[#1]: https://github.com/simurgh9/snake/issues/1
